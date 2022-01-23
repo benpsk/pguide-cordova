@@ -24,6 +24,17 @@ document.addEventListener('deviceready', onDeviceReady, false);
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+    // console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    // document.getElementById('deviceready').classList.add('ready');
+
+    /*setTimeout(()=> {
+        var ref = cordova.InAppBrowser.open('http://gunn-dev.github.io/404/', '_blank', 'location=no,zoom=no');
+
+        if (navigator.connection.type == Connection.NONE) {
+          navigator.notification.alert('An internet connection is required to continue');
+        } else {
+            window.open = ref;
+        }
+    }, 1000)*/
+
 }
