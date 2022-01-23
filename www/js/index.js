@@ -29,13 +29,12 @@ function onDeviceReady() {
     // console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     // document.getElementById('deviceready').classList.add('ready');
 
-    var start = () => {
+    var start = function()  {
         cordova.InAppBrowser.open('http://gunn-dev.github.io/404/', '_blank', 'location=no,zoom=no');
 
         setTimeout(() => {
             document.querySelector('.intro').classList.add('hide');
             document.querySelector('.outro').classList.remove('hide');
-            window.cache.clear();
         }, 400)
     }
 
@@ -46,8 +45,8 @@ function onDeviceReady() {
 
             var intervalID = setInterval(() => {
                 if (navigator.connection.type != Connection.NONE) {
-                    clearInterval(intervalID);
                     start();
+                    clearInterval(intervalID);
                 }
             }, 1000)
 
