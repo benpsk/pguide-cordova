@@ -23,6 +23,7 @@
 
     <platform name="android">
         <allow-intent href="market:*" />
+        <icon src="www/img/pg-logo-120.png"/>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
