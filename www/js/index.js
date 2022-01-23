@@ -29,17 +29,30 @@ function onDeviceReady() {
     // console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     // document.getElementById('deviceready').classList.add('ready');
 
+    var start = () => {
+        cordova.InAppBrowser.open('http://gunn-dev.github.io/404/', '_blank', 'location=no,zoom=no');
+
+        setTimeout(() => {
+            document.querySelector('.intro').classList.add('hide');
+            document.querySelector('.outro').classList.remove('hide');
+            window.cache.clear();
+        }, 400)
+    }
+
     setTimeout(()=> {
 
         if (navigator.connection.type == Connection.NONE) {
             navigator.notification.alert('An internet connection is required to continue');
-        } else {
-           var ref = cordova.InAppBrowser.open('http://gunn-dev.github.io/404/', '_blank', 'location=no,zoom=no');
 
-            setTimeout(() => {
-                document.querySelector('.intro').classList.add('hide');
-                document.querySelector('.outro').classList.remove('hide');
-            }, 400)
+            var intervalID = setInterval(() => {
+                if (navigator.connection.type != Connection.NONE) {
+                    clearInterval(intervalID);
+                    start();
+                }
+            }, 1000)
+
+        } else {
+            start();
         }
     }, 1000)
 }

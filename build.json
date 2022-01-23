@@ -1,11 +1,11 @@
 {
   "android": {
     "debug": {
-      "keystore": "/home/ben/mine/code/cordova/pguide-cordova/android.keystore",
-      "storePassword": "android",
+      "keystore": "/home/ben/Android/key.jks",
+      "storePassword": "pausiankim",
       "alias": "key0",
-      "password" : "android",
-      "keystoreType": "keystore"
+      "password" : "pausiankim",
+      "keystoreType": "jks"
     },
     "release": {
       "keystore": "/home/ben/Android/key.jks",
